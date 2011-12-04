@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  number: 1
+  title: MyString
+  description: MyText
+  choice1: MyString
+  choice2: MyString
+  choice3: MyString
+  choice4: MyString
+  answer: 1
+  explanation: MyText
+
+two:
+  number: 1
+  title: MyString
+  description: MyText
+  choice1: MyString
+  choice2: MyString
+  choice3: MyString
+  choice4: MyString
+  answer: 1
+  explanation: MyText
