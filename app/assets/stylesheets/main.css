@@ -54,6 +54,11 @@ body{
 		list-style:none;
 }
 
+span.description{
+	margin-bottom:10px;
+	font-size:12px;
+}
+
 #postQ{
 	text-align:right;
 	float:right;
@@ -61,7 +66,7 @@ body{
 
 #question{
 	margin:0px 0px;
-	padding:83px 0px 40px 40px;
+	padding:90px 0px 40px 40px;
 	text-align:left;
 }
 
@@ -97,7 +102,7 @@ body{
 }
 
 #answers{
-	margin-top:40px;
+	margin-top:20px;
 }
 
 
@@ -105,10 +110,31 @@ body{
 	width:auto;
 	height:40px;
 	margin-top:10px;
-	padding:5px 5px;
+	padding:0px;
     background-image:-moz-linear-gradient(top, #fbfcfc, #d7e0e1);
     background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fbfcfc), to(#d7e0e1), color-stop(1,#d7e0e1));
 	border:1px solid #b0bdc1;
+}
+
+.answer p{
+	margin:10px;
+	padding:0px;
+	font-size:16px;
+}
+
+.resultbox{
+	width:auto;
+	height:40px;
+	margin-top:10px;
+	padding:5px 5px;
+	background-color:#a2ca33;
+	border:1px solid #90af52;
+}
+
+.resulttitle{
+	margin:8px;
+	font-size:30px;
+	color:#FFF;
 }
  
 .box{
@@ -118,18 +144,33 @@ body{
     border-radius: 3px;
 }
 
-#newstext{
-	margin:0px;
-	padding:60px 0px 0px 0px;
+
+#result ul{
+		margin:0px;
+		padding:0px;
+		display:inline;
+		}
+		
+#result img{
+		border:none;
+		}			
+		
+#result li{
+		margin:0px;
+		padding:0px;
+		display:inline;
+		list-style:none;
+		float:left;
 }
 
-#kchannel{
-	padding-left:20px;
-	width:226px;
-	height:auto;
-	float:left;
-	clear:right;
+#explain{
+	margin-top:20px;
 }
+
+#nextq{
+	float:right;
+}
+
 
 #footer img{
 	margin:0px;
