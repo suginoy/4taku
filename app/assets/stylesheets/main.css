@@ -23,9 +23,10 @@ body{
 #wrapper{
 		height:auto; 
 		width:840px;
-		margin:0px auto 50px; 0px; 
-		padding:0px;
+		margin:0px auto 50px;
+		padding:0px 0px 50px 0px;
 		text-align:center;
+		background-color:#FFF;
 		}
 
 #header_bar{
@@ -139,7 +140,7 @@ span.description{
 }
 
 
-
+.result { visibility: hidden; }
 
 
 .result ul{
