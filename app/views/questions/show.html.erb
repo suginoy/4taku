@@ -2,69 +2,63 @@
     <div id="header"> 
         <ul>
         <li>
-        <img src="/assets/logo.gif" />
+        <img src="assets/logo.gif" />
         </li>
         <li >
 		<span class="description">&nbsp sample sap mle sample copy</span>
         </li>
         </ul>
         <div id="postQ">
-        <a href="#"><img src="/assets/post.gif" /></a>
+        <a href="#"><img src="assets/post.gif" /></a>
         </div>
     </div>
     <div id="question">
         <ul>
         <li class="qno">
-        Q<%= @question.number %>
+        Q1
         </li>
         <li class="qtitle">
-        <%= @question.title %>
+		これはダミータイトルです。この問題を解いてください。〜でしょうか？t
         </li>
         </ul>
         <br />
         <br />
         <div id="qtext">
-        <%= @question.description %>
+        Patrons at the café are _______ to take a bottle of wine 
+		home with them when it is procured with a meal.
         </div>
         <div id="answers">
             <div class="answer box">
-             <p><%= @question.choice1 %></p>
+            <p>A. about</p>
             </div>
             <div class="answer box">
-              <p><%= @question.choice2 %></p>
+            <p>B. about</p>
             </div>
             <div class="answer box">
-              <p><%= @question.choice3 %></p>
+            <p>C. about</p>
             </div>
             <div class="answer box">
-              <p><%= @question.choice4 %></p>
+            <p>D. about</p>
             </div>          
         </div>
     </div>
-    <div id="result" class="resultcorrect box">
-            <ul>
-            <li>
-            <p class="resulttitle">
-            ◯   Correct!
-            </p>
-            </li>
-            </ul>
-    </div>
-    <div id="result" class="resultwrong box">
-            <ul>
-            <li>
-            <p class="resulttitle">
-            Ｘ   Wrong!
-            </p>
-            </li>
-            </ul>
-    </div>    
     <div id="explain">
-            <div id="exptext">
-              <%= @question.explanation %>
-            </div>
+        <div id="correct" class="result">
+            <img src="assets/correct.gif" />
         </div>
-    <div id="nextq">
-    <a href="#"><img src="/assets/next.gif" alt="次の問題へ" /></a>
+        <div id="wrong" class="result">
+            <img src="assets/wrong.gif" />
+        </div>    
+        <div id="explaintext">
+                <div id="exptext">
+    解説：これはダミータイトルです。TOEICの決まりでは過去問をそのまま出す事は禁じられていると思いますので、
+    私がこれまでの受験経験の中で頭に残っている問題を自分なりに作り替えた形で紹介したいと思います。
+    どちらにしても正確に一字一句までは覚えていません。
+                </div>
+            </div>
+        <div id="nextq">
+        <a href="#"><img src="img/next.gif" alt="次の問題へ" /></a>
+        </div>
     </div>
+</div>
 </div>
