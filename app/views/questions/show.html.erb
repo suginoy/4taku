@@ -13,29 +13,28 @@
     <div id="question">
         <ul>
         <li class="qno">
-        Q1
+        Q<%= @question.number %>
         </li>
         <li class="qtitle">
-	  <%= @question.title %>	
+        <%= @question.title %>
         </li>
         </ul>
         <br />
         <br />
-        <div id="qtext">
-	  <%= @question.description %>
+        <%= @question.description %>
         </div>
         <div id="answers">
             <div class="answer box">
-            A. <%= @question.choice1 %>
+              <%= @question.choice1 %>
             </div>
             <div class="answer box">
-            B. <%= @question.choice2 %>
+              <%= @question.choice2 %>
             </div>
             <div class="answer box">
-            C. <%= @question.choice3 %>
+              <%= @question.choice3 %>
             </div>
             <div class="answer box">
-            D. <%= @question.choice4 %>
+              <%= @question.choice4 %>
             </div>          
         </div>
     </div>
