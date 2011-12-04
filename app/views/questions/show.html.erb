@@ -1,50 +1,61 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Number:</b>
-  <%= @question.number %>
-</p>
-
-<p>
-  <b>Title:</b>
-  <%= @question.title %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @question.description %>
-</p>
-
-<p>
-  <b>Choice1:</b>
-  <%= @question.choice1 %>
-</p>
-
-<p>
-  <b>Choice2:</b>
-  <%= @question.choice2 %>
-</p>
-
-<p>
-  <b>Choice3:</b>
-  <%= @question.choice3 %>
-</p>
-
-<p>
-  <b>Choice4:</b>
-  <%= @question.choice4 %>
-</p>
-
-<p>
-  <b>Answer:</b>
-  <%= @question.answer %>
-</p>
-
-<p>
-  <b>Explanation:</b>
-  <%= @question.explanation %>
-</p>
-
-
-<%= link_to 'Edit', edit_question_path(@question) %> |
-<%= link_to 'Back', questions_path %>
+<div id="wrapper">
+    <div id="header"> 
+        <ul>
+        <li>
+        <img src="/assets/logo.gif" />
+		 &nbsp sample sap mle sample copy
+        </li>
+        </ul>
+        <div id="postQ">
+        <a href="#"><img src="img/post.gif" /></a>
+        </div>
+    </div>
+    <div id="question">
+        <ul>
+        <li class="qno">
+        Q1
+        </li>
+        <li class="qtitle">
+		これはダミータイトルです。この問題を解いてください。〜でしょうか？t
+        </li>
+        </ul>
+        <br />
+        <br />
+        <div id="qtext">
+        Patrons at the café are _______ to take a bottle of wine 
+		home with them when it is procured with a meal.
+        </div>
+        <div id="answers">
+            <div class="answer box">
+            A. about
+            </div>
+            <div class="answer box">
+            B. about
+            </div>
+            <div class="answer box">
+            C. about
+            </div>
+            <div class="answer box">
+            D. about
+            </div>          
+        </div>
+    </div>
+    <div id="result">
+            <div id="resulttitle">
+            Correct!
+            </div>
+            <div id="resulticon">
+            Correct!
+            </div>
+    </div>
+    <div id="explain">
+            <div id="exptext">
+解説：これはダミータイトルです。TOEICの決まりでは過去問をそのまま出す事は禁じられていると思いますので、
+私がこれまでの受験経験の中で頭に残っている問題を自分なりに作り替えた形で紹介したいと思います。
+どちらにしても正確に一字一句までは覚えていません。
+            </div>
+        </div>
+    <div id="nextq">
+    <a href="#"><img src="img/next.gif" alt="次の問題へ" /></a>
+    </div>
+</div>
