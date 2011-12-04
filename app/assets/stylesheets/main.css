@@ -163,6 +163,7 @@ span.description{
 
 #explain{
 	margin-top:10px;
+	visibility:hidden;
 }
 
 #explaintext{
