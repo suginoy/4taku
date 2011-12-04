@@ -3,7 +3,9 @@
         <ul>
         <li>
         <img src="/assets/logo.gif" />
-		 &nbsp sample sap mle sample copy
+        </li>
+        <li >
+		<span class="description">&nbsp sample sap mle sample copy</span>
         </li>
         </ul>
         <div id="postQ">
@@ -26,25 +28,30 @@
         </div>
         <div id="answers">
             <div class="answer box">
-              <%= @question.choice1 %>
+             <p><%= @question.choice1 %></p>
             </div>
             <div class="answer box">
-              <%= @question.choice2 %>
+              <p><%= @question.choice2 %></p>
             </div>
             <div class="answer box">
-              <%= @question.choice3 %>
+              <p><%= @question.choice3 %></p>
             </div>
             <div class="answer box">
-              <%= @question.choice4 %>
+              <p><%= @question.choice4 %></p>
             </div>          
         </div>
     </div>
-    <div id="result">
-            <div id="resulttitle">
-            Correct!
-            </div>
-            <div id="resulticon">
-            Correct!
+    <div id="result" class="resultbox box">
+            <div>
+            <ul>
+            <li>
+            <p class="resulttitle">
+            ◯   Correct!
+            </p>
+            </li>
+            <li>
+            </li>
+            </ul>
             </div>
     </div>
     <div id="explain">
