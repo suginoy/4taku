@@ -140,7 +140,7 @@ span.description{
 }
 
 
-.result { visibility: hidden; }
+.result { display:none; }
 
 
 .result ul{
@@ -163,7 +163,7 @@ span.description{
 
 #explain{
 	margin-top:10px;
-	visibility:hidden;
+	display:none;
 }
 
 #explaintext{
