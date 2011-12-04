@@ -1,0 +1,185 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body{
+	margin:0;
+	 padding:0;
+	 background-color:#000;
+	 text-align:center;
+	 font-family:"Arial, Helvetica, sans-serif","ヒラギノ角ゴ Pro W3";
+	font-size:14px;
+	 line-height:170%;
+	 color:#515151;
+	background: #f3f9fb;	 
+	 }
+
+*{
+ margin: 0px;
+ padding:0px;
+ text-align:left;}
+
+
+
+#wrapper{
+		height:auto; 
+		width:840px;
+		margin:0px auto 50px;
+		padding:0px 0px 50px 0px;
+		text-align:center;
+		background-color:#FFF;
+		}
+
+#header_bar{
+width:100%;　/*ヘッダーバーの幅*/
+bg-color:#d4dee1;
+}
+
+#header{
+	height:auto;
+		width:760px;
+		margin:0px;
+		padding:13px 40px ;
+		background-color:#d4dee1;
+		float:left;
+		}
+
+#header ul{
+		margin:0px;
+		padding:0px;
+		display:inline;
+		}
+		
+#header img{
+		border:none;
+		}			
+		
+#header li{
+		margin:0px;
+		padding:0px;
+		display:inline;
+		list-style:none;
+}
+
+span.description{
+	margin-bottom:10px;
+	font-size:12px;
+}
+
+#postQ{
+	float:right;
+}
+
+#question{
+	margin:0px 0px;
+	padding:90px 40px 40px 40px;
+	text-align:left;
+}
+
+#question ul{
+		margin:0px;
+		padding:0px;
+		display:inline;
+		}
+		
+#question img{
+		border:none;
+		}			
+		
+#question li{
+		margin:0px;
+		padding:0px;
+		display:inline;
+		list-style:none;
+}
+
+.qno{
+	font-size:38px;
+}
+
+.qtitle{
+	font-size:18px;
+}
+
+#qtext{
+	margin:0px;
+	padding:15px 0px 0px 72px;
+
+}
+
+#answers{
+	margin-top:20px;
+}
+
+#explain{
+	margin:0px;
+	padding:40px;
+	border-top:1px solid #999;	
+}
+
+.answer{
+	width:auto;
+	height:35px;
+	margin-top:10px;
+	padding:0px;
+    background-image:-moz-linear-gradient(top, #fbfcfc, #d7e0e1);
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fbfcfc), to(#d7e0e1), color-stop(1,#d7e0e1));
+	border:1px solid #b0bdc1;
+}
+
+.answer p{
+	margin:7px 0px 0px 10px;
+	padding:0px;
+	font-size:16px;
+}
+
+.box{
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    border-radius: 3px;
+}
+
+
+.result { display:none; }
+
+
+.result ul{
+		margin:0px;
+		padding:0px;
+		display:inline;
+		}
+		
+.result img{
+		border:none;
+		}			
+		
+.result li{
+		margin:0px;
+		padding:0px;
+		display:inline;
+		list-style:none;
+		float:left;
+}
+
+#explain{
+	margin-top:10px;
+	display:none;
+}
+
+#explaintext{
+	margin-top:20px;
+}
+
+
+#nextq{
+	float:right;
+}
+
+
+#footer img{
+	margin:0px;
+	padding:20px 0px 0px 0px;
+	border:none;
+	clear:both;
+		}
+

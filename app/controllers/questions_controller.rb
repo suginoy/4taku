@@ -14,6 +14,7 @@ class QuestionsController < ApplicationController
   # GET /questions/1.json
   def show
     @question = Question.find(params[:id])
+    @next_question = Question.other_questions(params[:id]).sample
 
     respond_to do |format|
       format.html # show.html.erb
@@ -80,4 +81,17 @@ class QuestionsController < ApplicationController
       format.json { head :ok }
     end
   end
+
+  # POST /questions/1/answer
+  # POST /questions/1/answer.json
+  def answer
+    @question = Question.find(params[:id])
+
+    if @question.answer == params[:answer].to_i
+      @right = true
+    else
+      @right = false
+    end 
+  end
+
 end
