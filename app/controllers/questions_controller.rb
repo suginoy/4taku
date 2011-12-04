@@ -94,4 +94,12 @@ class QuestionsController < ApplicationController
     end 
   end
 
+  # GET /questions/1
+  # GET /questions/1.json
+  def first 
+    @question = Question.first
+   #@next_question = Question.other_questions(@question[:id]).sample
+
+    redirect_to :action => "show", :id => @question[:id]
+  end
 end
