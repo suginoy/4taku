@@ -5,7 +5,7 @@
         <img src="/assets/logo.gif" />
         </li>
         <li>
-		<span class="description">&nbsp <img src="assets/info.gif" /></span>
+		<span class="description">&nbsp <img src="/assets/info.gif" /></span>
         </li>
         </ul>
         <div id="postQ">
@@ -24,7 +24,6 @@
         <br />
         <br />
         <%= @question.description %>
-        </div>
         <div id="answers">
             <div class="answer box">
               <p>A. <%= link_to @question.choice1, { :controller => "questions", :action => "answer", :id => @question[:id], :answer => 1 }, :method => :post, :remote => true %></p>
@@ -39,7 +38,7 @@
               <p>D. <%= link_to @question.choice4, { :controller => "questions", :action => "answer", :id => @question[:id], :answer => 4 }, :method => :post, :remote => true %></p>
             </div>          
         </div>
-    </div>
+        </div>
     <div id="explain">
         <div id="correct" class="result">
             <img src="/assets/correct.gif" />
@@ -54,5 +53,6 @@
         <div id="nextq">
         <%= link_to image_tag("/assets/next.gif", :alt => "次の問題へ"), question_path(@next_question) %>
         </div>
+</div>
 </div>
 </div>
