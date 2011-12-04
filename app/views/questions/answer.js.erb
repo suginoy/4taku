@@ -1,0 +1,10 @@
+$('#result').html(
+  <% if @right %>
+  "Correct!"
+  <%= @right %>
+  <% else %> 
+  "False"
+  <% end %>
+);
+
+$('#explain').show();

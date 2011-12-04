@@ -25,16 +25,16 @@
         </div>
         <div id="answers">
             <div class="answer box">
-              <%= @question.choice1 %>
+              <%= link_to @question.choice1, { :controller => "questions", :action => "answer", :id => @question[:id], :answer => 1 }, :method => :post, :remote => true %>
             </div>
             <div class="answer box">
-              <%= @question.choice2 %>
+              <%= link_to @question.choice2, { :controller => "questions", :action => "answer", :id => @question[:id], :answer => 2 }, :method => :post, :remote => true %>
             </div>
             <div class="answer box">
-              <%= @question.choice3 %>
+              <%= link_to @question.choice3, { :controller => "questions", :action => "answer", :id => @question[:id], :answer => 3 }, :method => :post, :remote => true %>
             </div>
             <div class="answer box">
-              <%= @question.choice4 %>
+              <%= link_to @question.choice4, { :controller => "questions", :action => "answer", :id => @question[:id], :answer => 4 }, :method => :post, :remote => true %>
             </div>          
         </div>
     </div>

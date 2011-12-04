@@ -1,5 +1,9 @@
 Yontaku::Application.routes.draw do
-  resources :questions
+  resources :questions do
+    member do
+      post "answer" => "questions#answer"
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
