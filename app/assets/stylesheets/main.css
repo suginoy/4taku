@@ -23,20 +23,25 @@ body{
 #wrapper{
 		height:auto; 
 		width:840px;
-		margin:0px auto; 
+		margin:0px auto 50px; 0px; 
 		padding:0px;
 		text-align:center;
 		}
 
+#header_bar{
+width:100%;　/*ヘッダーバーの幅*/
+bg-color:#d4dee1;
+}
+
 #header{
-		height:auto;
+	height:auto;
 		width:760px;
 		margin:0px;
-		padding:15px 40px ;
+		padding:13px 40px ;
 		background-color:#d4dee1;
 		float:left;
 		}
-		
+
 #header ul{
 		margin:0px;
 		padding:0px;
@@ -60,7 +65,6 @@ span.description{
 }
 
 #postQ{
-	text-align:right;
 	float:right;
 }
 
@@ -97,7 +101,7 @@ span.description{
 
 #qtext{
 	margin:0px;
-	padding:0px 0px;
+	padding:15px 0px 0px 72px;
 
 }
 
@@ -108,6 +112,7 @@ span.description{
 #explain{
 	margin:0px;
 	padding:40px;
+	border-top:1px solid #999;	
 }
 
 .answer{
