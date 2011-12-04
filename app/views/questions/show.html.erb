@@ -7,7 +7,7 @@
         </li>
         </ul>
         <div id="postQ">
-        <a href="#"><img src="img/post.gif" /></a>
+        <a href="#"><img src="/assets/post.gif" /></a>
         </div>
     </div>
     <div id="question">
@@ -16,27 +16,26 @@
         Q1
         </li>
         <li class="qtitle">
-		これはダミータイトルです。この問題を解いてください。〜でしょうか？t
+	  <%= @question.title %>	
         </li>
         </ul>
         <br />
         <br />
         <div id="qtext">
-        Patrons at the café are _______ to take a bottle of wine 
-		home with them when it is procured with a meal.
+	  <%= @question.description %>
         </div>
         <div id="answers">
             <div class="answer box">
-            A. about
+            A. <%= @question.choice1 %>
             </div>
             <div class="answer box">
-            B. about
+            B. <%= @question.choice2 %>
             </div>
             <div class="answer box">
-            C. about
+            C. <%= @question.choice3 %>
             </div>
             <div class="answer box">
-            D. about
+            D. <%= @question.choice4 %>
             </div>          
         </div>
     </div>
@@ -50,12 +49,10 @@
     </div>
     <div id="explain">
             <div id="exptext">
-解説：これはダミータイトルです。TOEICの決まりでは過去問をそのまま出す事は禁じられていると思いますので、
-私がこれまでの受験経験の中で頭に残っている問題を自分なりに作り替えた形で紹介したいと思います。
-どちらにしても正確に一字一句までは覚えていません。
+              <%= @question.explanation %>
             </div>
         </div>
     <div id="nextq">
-    <a href="#"><img src="img/next.gif" alt="次の問題へ" /></a>
+    <%= link_to image_tag("/assets/next.gif", :alt => "次の問題へ"), question_path(@next_question) %>
     </div>
 </div>
