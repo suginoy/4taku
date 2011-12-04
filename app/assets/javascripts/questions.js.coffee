@@ -8,3 +8,12 @@ $(->
         $("#click_here_button").click(-> square4())
 )
 
+keyPressed = (key) ->
+  alert(key)
+
+shortcut.add("1", ->
+  keyPressed("1")
+,
+  'type':'keyup',
+)
+
