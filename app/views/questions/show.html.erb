@@ -41,19 +41,24 @@
             </div>          
         </div>
     </div>
-    <div id="result" class="resultbox box">
-            <div>
+    <div id="result" class="resultcorrect box">
             <ul>
             <li>
             <p class="resulttitle">
             ◯   Correct!
             </p>
             </li>
+            </ul>
+    </div>
+    <div id="result" class="resultwrong box">
+            <ul>
             <li>
+            <p class="resulttitle">
+            Ｘ   Wrong!
+            </p>
             </li>
             </ul>
-            </div>
-    </div>
+    </div>    
     <div id="explain">
             <div id="exptext">
               <%= @question.explanation %>

@@ -122,7 +122,7 @@ span.description{
 	font-size:16px;
 }
 
-.resultbox{
+.resultcorrect{
 	width:auto;
 	height:40px;
 	margin-top:10px;
@@ -130,6 +130,16 @@ span.description{
 	background-color:#a2ca33;
 	border:1px solid #90af52;
 }
+
+.resultwrong{
+	width:auto;
+	height:40px;
+	margin-top:10px;
+	padding:5px 5px;
+	background-color:#fa946c;
+	border:1px solid #fd4040;
+}
+
 
 .resulttitle{
 	margin:8px;
@@ -143,6 +153,9 @@ span.description{
     -khtml-border-radius: 3px;
     border-radius: 3px;
 }
+
+
+
 
 
 #result ul{
