@@ -3,7 +3,9 @@
         <ul>
         <li>
         <img src="/assets/logo.gif" />
-		 &nbsp sample sap mle sample copy
+        </li>
+        <li>
+		<span class="description">&nbsp <img src="assets/info.gif" /></span>
         </li>
         </ul>
         <div id="postQ">
@@ -25,33 +27,35 @@
         </div>
         <div id="answers">
             <div class="answer box">
-              <%= link_to @question.choice1, { :controller => "questions", :action => "answer", :id => @question[:id], :answer => 1 }, :method => :post, :remote => true %>
+              <p>A. <%= link_to @question.choice1, { :controller => "questions", :action => "answer", :id => @question[:id], :answer => 1 }, :method => :post, :remote => true %></p>
             </div>
             <div class="answer box">
-              <%= link_to @question.choice2, { :controller => "questions", :action => "answer", :id => @question[:id], :answer => 2 }, :method => :post, :remote => true %>
+              <p>B. <%= link_to @question.choice2, { :controller => "questions", :action => "answer", :id => @question[:id], :answer => 2 }, :method => :post, :remote => true %></p>
             </div>
             <div class="answer box">
-              <%= link_to @question.choice3, { :controller => "questions", :action => "answer", :id => @question[:id], :answer => 3 }, :method => :post, :remote => true %>
+              <p>C. <%= link_to @question.choice3, { :controller => "questions", :action => "answer", :id => @question[:id], :answer => 3 }, :method => :post, :remote => true %></p>
             </div>
             <div class="answer box">
-              <%= link_to @question.choice4, { :controller => "questions", :action => "answer", :id => @question[:id], :answer => 4 }, :method => :post, :remote => true %>
+              <p>D. <%= link_to @question.choice4, { :controller => "questions", :action => "answer", :id => @question[:id], :answer => 4 }, :method => :post, :remote => true %></p>
             </div>          
         </div>
     </div>
-    <div id="result">
-            <div id="resulttitle">
-            Correct!
-            </div>
-            <div id="resulticon">
-            Correct!
-            </div>
-    </div>
     <div id="explain">
+        <div id="correct" class="result">
+            <img src="/assets/correct.gif" />
+        </div>
+        <div id="wrong" class="result">
+            <img src="/assets/wrong.gif" />
+        </div>    
+          <div id="explaintext">
             <div id="exptext">
               <%= @question.explanation %>
             </div>
+        <div id="nextq">
+        <a href="#"><img src="/assets/next.gif" alt="次の問題へ" /></a>
         </div>
     <div id="nextq">
     <%= link_to image_tag("/assets/next.gif", :alt => "次の問題へ"), question_path(@next_question) %>
     </div>
+</div>
 </div>
