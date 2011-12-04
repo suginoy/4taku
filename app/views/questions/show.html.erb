@@ -7,7 +7,7 @@
         </li>
         </ul>
         <div id="postQ">
-        <a href="#"><img src="img/post.gif" /></a>
+        <a href="#"><img src="/assets/post.gif" /></a>
         </div>
     </div>
     <div id="question">
@@ -16,27 +16,26 @@
         Q1
         </li>
         <li class="qtitle">
-		これはダミータイトルです。この問題を解いてください。〜でしょうか？t
+        <%= @question.title %>
         </li>
         </ul>
         <br />
         <br />
         <div id="qtext">
-        Patrons at the café are _______ to take a bottle of wine 
-		home with them when it is procured with a meal.
+        <%= @question.description %>
         </div>
         <div id="answers">
             <div class="answer box">
-            A. about
+              <%= @question.choice1 %>
             </div>
             <div class="answer box">
-            B. about
+              <%= @question.choice2 %>
             </div>
             <div class="answer box">
-            C. about
+              <%= @question.choice3 %>
             </div>
             <div class="answer box">
-            D. about
+              <%= @question.choice4 %>
             </div>          
         </div>
     </div>
@@ -56,6 +55,6 @@
             </div>
         </div>
     <div id="nextq">
-    <a href="#"><img src="img/next.gif" alt="次の問題へ" /></a>
+    <a href="#"><img src="/assets/next.gif" alt="次の問題へ" /></a>
     </div>
 </div>
