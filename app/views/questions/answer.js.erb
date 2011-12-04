@@ -1,10 +1,8 @@
-$('#result').html(
-  <% if @right %>
-  "Correct!"
-  <%= @right %>
-  <% else %> 
-  "False"
-  <% end %>
-);
-
+<% if @right %>
+$('#correct').show();
+$('#wrong').hide();
+<% else %> 
+$('#correct').hide();
+$('#wrong').show();
+<% end %>
 $('#explain').show();
