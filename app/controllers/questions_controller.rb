@@ -14,7 +14,7 @@ class QuestionsController < ApplicationController
   # GET /questions/1.json
   def show
     @question = Question.find(params[:id])
-    @next_question = Question.other_questions(params[:id]).sample
+    @next_question = Question.other_question(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
