@@ -23,7 +23,7 @@
         </ul>
         <br />
         <br />
-        <%= @question.description %>(Your percentage of correct answers: <%= @summary.percentage %>)
+        <%= @question.description %>(<%= @summary.percentage %> %)
         <div id="answers">
             <div class="answer box">
               <p>A. <%= link_to @question.choice1, { :controller => "questions", :action => "answer", :id => @question[:id], :answer => 1 }, :method => :post, :remote => true, :name => "answer" %></p>

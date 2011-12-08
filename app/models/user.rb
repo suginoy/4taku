@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
     if Summary.where(:user_id => self.id, :question_id => question_id).length == 0
       Summary.create!(:user_id => self.id, :question_id => question_id, :total => 0, :right => 0)
     else
-      Summary.where(:user_id => self.id, :question_id => question_id)[0]
+      Summary.find_by_user_id_and_question_id(self.id, question_id)
     end
   end
 end

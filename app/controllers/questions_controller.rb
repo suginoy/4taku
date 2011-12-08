@@ -16,7 +16,7 @@ class QuestionsController < ApplicationController
     @user = current_user
     @question = Question.find(params[:id])
     @next_question = Question.other_question(params[:id])
-    @summary = @user.prepare_summary(@question[:id])
+    @summary = Summary.find_by_user_id_and_question_id(@user[:id], @question[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -89,7 +89,7 @@ class QuestionsController < ApplicationController
   def answer
     @question = Question.find(params[:id])
     @user = current_user
-    @summary = @user.prepare_summary(@question[:id])
+    @summary = Summary.find_by_user_id_and_question_id(@user[:id], @question[:id])
     @score = @user.scores.build(:question => @question, :summary_id => @summary[:id], :user_answer => params[:answer].to_i, :answer_date => Time.current)
 
     if @question.answer == @score[:user_answer]
@@ -108,7 +108,14 @@ class QuestionsController < ApplicationController
   # GET /questions/1
   # GET /questions/1.json
   def first 
-    @question = Question.first
+    @user = current_user
+
+    # サマリ全コピー TODO 1.バルクINSERTに変更(できるの？) / 2.初回ログイン時に変更する
+    Question.all.each do |q|
+      @user.prepare_summary(q[:id])
+    end
+
+    @question = Summary.least_answered(@user[:id])
 
     redirect_to :action => "show", :id => @question[:id]
   end
