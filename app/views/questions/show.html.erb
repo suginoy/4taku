@@ -23,19 +23,19 @@
         </ul>
         <br />
         <br />
-        <%= @question.description %>
+        <%= @question.description %>(Your percentage of correct answers: <%= @summary.percentage %>)
         <div id="answers">
             <div class="answer box">
-              <p>A. <%= link_to @question.choice1, { :controller => "questions", :action => "answer", :id => @question[:id], :answer => 1 }, :method => :post, :remote => true %></p>
+              <p>A. <%= link_to @question.choice1, { :controller => "questions", :action => "answer", :id => @question[:id], :answer => 1 }, :method => :post, :remote => true, :name => "answer" %></p>
             </div>
             <div class="answer box">
-              <p>B. <%= link_to @question.choice2, { :controller => "questions", :action => "answer", :id => @question[:id], :answer => 2 }, :method => :post, :remote => true %></p>
+              <p>B. <%= link_to @question.choice2, { :controller => "questions", :action => "answer", :id => @question[:id], :answer => 2 }, :method => :post, :remote => true, :name => "answer" %></p>
             </div>
             <div class="answer box">
-              <p>C. <%= link_to @question.choice3, { :controller => "questions", :action => "answer", :id => @question[:id], :answer => 3 }, :method => :post, :remote => true %></p>
+              <p>C. <%= link_to @question.choice3, { :controller => "questions", :action => "answer", :id => @question[:id], :answer => 3 }, :method => :post, :remote => true, :name => "answer" %></p>
             </div>
             <div class="answer box">
-              <p>D. <%= link_to @question.choice4, { :controller => "questions", :action => "answer", :id => @question[:id], :answer => 4 }, :method => :post, :remote => true %></p>
+              <p>D. <%= link_to @question.choice4, { :controller => "questions", :action => "answer", :id => @question[:id], :answer => 4 }, :method => :post, :remote => true, :name => "answer" %></p>
             </div>          
         </div>
         </div>

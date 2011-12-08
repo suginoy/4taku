@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111207114429) do
+ActiveRecord::Schema.define(:version => 20111208080740) do
 
   create_table "questions", :force => true do |t|
     t.integer  "number"
@@ -26,6 +26,33 @@ ActiveRecord::Schema.define(:version => 20111207114429) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "scores", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "question_id"
+    t.integer  "user_answer"
+    t.boolean  "correct"
+    t.date     "answer_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "summary_id"
+  end
+
+  add_index "scores", ["question_id"], :name => "index_scores_on_question_id"
+  add_index "scores", ["summary_id"], :name => "index_scores_on_summary_id"
+  add_index "scores", ["user_id"], :name => "index_scores_on_user_id"
+
+  create_table "summaries", :force => true do |t|
+    t.integer  "total"
+    t.integer  "right"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "question_id"
+  end
+
+  add_index "summaries", ["question_id"], :name => "index_summaries_on_question_id"
+  add_index "summaries", ["user_id"], :name => "index_summaries_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false

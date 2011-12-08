@@ -1,4 +1,4 @@
-<% if @right %>
+<% if @correct %>
 $('#correct').show();
 $('#wrong').hide();
 <% else %> 
@@ -8,3 +8,9 @@ $('#wrong').show();
 $('#explain').show();
 $('#exptext').show();
 $('#nextq').show();
+
+$(function(){
+  $('a[name="answer"]').click(function(){
+    return false;
+  })
+});

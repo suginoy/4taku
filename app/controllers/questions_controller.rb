@@ -13,8 +13,10 @@ class QuestionsController < ApplicationController
   # GET /questions/1
   # GET /questions/1.json
   def show
+    @user = current_user
     @question = Question.find(params[:id])
     @next_question = Question.other_question(params[:id])
+    @summary = @user.prepare_summary(@question[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -86,19 +88,27 @@ class QuestionsController < ApplicationController
   # POST /questions/1/answer.json
   def answer
     @question = Question.find(params[:id])
+    @user = current_user
+    @summary = @user.prepare_summary(@question[:id])
+    @score = @user.scores.build(:question => @question, :summary_id => @summary[:id], :user_answer => params[:answer].to_i, :answer_date => Time.current)
 
-    if @question.answer == params[:answer].to_i
-      @right = true
+    if @question.answer == @score[:user_answer]
+      @correct = true
+      @score.correct = true
+      @summary.attributes = { :total => @summary[:total] + 1, :right => @summary[:right] + 1 }
     else
-      @right = false
+      @correct = false
+      @score.correct = false
+      @summary.attributes = { :total => @summary[:total] + 1 }
     end 
+    @summary.save!
+    @score.save!
   end
 
   # GET /questions/1
   # GET /questions/1.json
   def first 
     @question = Question.first
-   #@next_question = Question.other_questions(@question[:id]).sample
 
     redirect_to :action => "show", :id => @question[:id]
   end
