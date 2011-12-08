@@ -11,7 +11,7 @@ class Summary < ActiveRecord::Base
   end 
 
   def percentage
-    sprintf "%2d", right.to_f * 100 / total
+    total == 0 ? "0" : sprintf( "%2d", right.to_f * 100 / total)
   end
 
 end
