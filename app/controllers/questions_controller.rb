@@ -115,8 +115,6 @@ class QuestionsController < ApplicationController
       @user.prepare_summary(q[:id])
     end
 
-    @question = Summary.least_answered(@user[:id])
-
-    redirect_to :action => "show", :id => @question[:id]
+    redirect_to :action => "show", :id => Summary.least_answered(@user[:id])[:question_id]
   end
 end
