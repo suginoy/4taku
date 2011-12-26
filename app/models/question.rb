@@ -29,6 +29,5 @@ class Question < ActiveRecord::Base
   private
     def set_next_number # TODO メソッド名変更
       self.number ||= self.course.questions_count + 1
-     #self.number ||= Course.find(self.course_id).questions_count + 1
     end
 end
