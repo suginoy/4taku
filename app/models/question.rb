@@ -1,13 +1,12 @@
 class Question < ActiveRecord::Base
-  before_save :set_next_number
+  before_validation :set_next_number
   after_destroy :compact
   belongs_to :course, :counter_cache => true
   has_many :scores
   has_many :users, :through => :scores
 
- #validates :number, :title, :description, :choice1, :choice2, :choice3, :choice4, :explanation,
-  validates          :title, :description, :choice1, :choice2, :choice3, :choice4, :explanation,
-    :presence => true
+  validates :number, :numericality => { :greater_than_or_equal_to => 1 }
+  validates :title, :description, :choice1, :choice2, :choice3, :choice4, :explanation, :presence => true
   validates :answer, :inclusion => { :in => [1, 2, 3, 4] }
 
   default_scope order("number")
