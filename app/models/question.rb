@@ -1,5 +1,5 @@
 class Question < ActiveRecord::Base
-  before_validation :set_next_number
+  before_validation :fill_number
   after_destroy :compact
   belongs_to :course, :counter_cache => true
   has_many :scores
@@ -26,7 +26,7 @@ class Question < ActiveRecord::Base
   end
 
   private
-    def set_next_number # TODO メソッド名変更
+    def fill_number
       self.number ||= self.course.questions_count + 1
     end
 end
