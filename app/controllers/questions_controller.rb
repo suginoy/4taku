@@ -1,21 +1,12 @@
 class QuestionsController < ApplicationController
-  # GET /questions
-  # GET /questions.json
-  def index
-    # @questions = Question.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @questions }
-    end
-  end
-
-  # GET /questions/1
-  # GET /questions/1.json
+  # GET /courses/:course_id/questions/1
+  # GET /courses/:course_id/questions/1.json
   def show
     @user = current_user
     @question = Question.find(params[:id])
-    @next_question = Question.other_question(params[:id])
+   #@next_question = Question.other_question(params[:id])
+    @next_question = @question.next
+    @user.prepare_summary(@question[:id])
     @summary = Summary.find_by_user_id_and_question_id(@user[:id], @question[:id])
 
     respond_to do |format|
@@ -24,31 +15,28 @@ class QuestionsController < ApplicationController
     end
   end
 
-  # GET /questions/new
-  # GET /questions/new.json
+  # GET /courses/:course_id/questions/new
+  # GET /courses/:course_id/questions/new.json
   def new
-    @question = Question.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @question }
-    end
+    @question = Question.new(:course_id => params[:course_id])
   end
 
-  # GET /questions/1/edit
+  # GET /courses/:course_id/questions/1/edit
   def edit
     @question = Question.find(params[:id])
   end
 
-  # POST /questions
-  # POST /questions.json
+  # POST /courses/:course_id/questions
+  # POST /courses/:course_id/questions.json
   def create
-    @question = Question.new(params[:question])
+    @course = Course.find(params[:course_id])
+    @question = @course.questions.build(params[:question])
+    @question.save
 
     respond_to do |format|
       if @question.save
-        format.html { redirect_to @question, notice: 'Question was successfully created.' }
-        format.json { render json: @question, status: :created, location: @question }
+        format.html { redirect_to @course, notice: 'Question was successfully created.' }
+        format.json { render json: @course, status: :created, location: @question }
       else
         format.html { render action: "new" }
         format.json { render json: @question.errors, status: :unprocessable_entity }
@@ -56,14 +44,14 @@ class QuestionsController < ApplicationController
     end
   end
 
-  # PUT /questions/1
-  # PUT /questions/1.json
+  # PUT /courses/:course_id/questions/1
+  # PUT /courses/:course_id/questions/1.json
   def update
     @question = Question.find(params[:id])
 
     respond_to do |format|
       if @question.update_attributes(params[:question])
-        format.html { redirect_to @question, notice: 'Question was successfully updated.' }
+        format.html { redirect_to @question.course, notice: 'Question was successfully updated.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }
@@ -72,8 +60,8 @@ class QuestionsController < ApplicationController
     end
   end
 
-  # DELETE /questions/1
-  # DELETE /questions/1.json
+  # DELETE /courses/:course_id/questions/1
+  # DELETE /courses/:course_id/questions/1.json
   def destroy
     @question = Question.find(params[:id])
     @question.destroy
@@ -84,9 +72,10 @@ class QuestionsController < ApplicationController
     end
   end
 
-  # POST /questions/1/answer
-  # POST /questions/1/answer.json
+  # POST /courses/:course_id/questions/1/answer
+  # POST /courses/:course_id/questions/1/answer.json
   def answer
+    # TODO: サマリ更新ロジックをモデルに移動
     @question = Question.find(params[:id])
     @user = current_user
     @summary = Summary.find_by_user_id_and_question_id(@user[:id], @question[:id])
@@ -103,18 +92,5 @@ class QuestionsController < ApplicationController
     end 
     @summary.save!
     @score.save!
-  end
-
-  # GET /questions/1
-  # GET /questions/1.json
-  def first 
-    @user = current_user
-
-    # サマリ全コピー TODO 1.バルクINSERTに変更(できるの？) / 2.初回ログイン時に変更する
-    Question.all.each do |q|
-      @user.prepare_summary(q[:id])
-    end
-
-    redirect_to :action => "show", :id => Summary.least_answered(@user[:id])[:question_id]
   end
 end

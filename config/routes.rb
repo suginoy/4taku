@@ -1,11 +1,14 @@
 Yontaku::Application.routes.draw do
-  devise_for :users
+  get "dashboard" => "dashboard#show"
 
-  resources :questions do
-    member do
-      post "answer" => "questions#answer"
-    end
+  resources :courses do
+    resources :questions, :except => [:index]
+      member do
+        post "answer" => "questions#answer"
+      end
   end
+
+  devise_for :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -57,7 +60,7 @@ Yontaku::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   # root :to => 'welcome#index'
-    root :to => 'questions#first'
+    root :to => 'dashboard#index'
 
   # See how all your routes lay out with "rake routes"
 

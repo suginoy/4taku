@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @question %> |
-<%= link_to 'Back', questions_path %>
+<%= link_to 'Show', course_question_path(@question.course, @question) %> |
+<%= link_to 'Back', course_path(@question.course) %>

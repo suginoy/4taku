@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>コース:</b>
+  <%= @course.name %>
+</p>
+
+<p>
+  <b>コース内容:</b>
+  <%= @course.description %>
+</p>
+
+<p>
+  <b>作成者:</b>
+  <%= @course.owner.email %>
+</p>
+
+<p>
+  <b>問題数:</b>
+  <%= @course.questions_count %>
+</p>
+
+<p>
+  <b>共有/専有:</b>
+  <%= sharing_display @course.sharing %>
+</p>
+
+<% unless @course.questions.empty? %>
+<p>
+  <%= link_to 'スタート', course_question_path(@course, @course.questions.first) %>
+</p>
+<ul>
+  <% @course.questions.each do |question| %>
+  <li><%= question.number %>|<%= truncate(question.description, :length => 20) %>|<%= link_to "Edit", edit_course_question_path(@course, question) %></li>
+  <% end %>
+</ul>
+<% end %>
+
+<p>
+  <%= link_to '問題を追加する', new_course_question_path(@course) %>
+</p>
+
+<%= link_to 'Edit Cource', edit_course_path(@course) %> |
+<%= link_to 'Back', courses_path %>

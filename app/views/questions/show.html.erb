@@ -9,7 +9,7 @@
         </li>
         </ul>
         <div id="postQ">
-        <%= link_to image_tag("/assets/post.gif"), new_question_path %>
+        <%= link_to image_tag("/assets/post.gif"), new_course_path %>
         </div>
     </div>
     <div id="question">
@@ -18,12 +18,12 @@
         Q<%= @question.number %>
         </li>
         <li class="qtitle">
-        <%= @question.title %>
+        <%= @question.title %>(<%= @summary.percentage %> % of <%= pluralize(@summary.total, "time") %>)
         </li>
         </ul>
         <br />
         <br />
-        <%= @question.description %>(<%= @summary.percentage %> %)
+        <%= @question.description %>
         <div id="answers">
             <div class="answer box">
               <p>A. <%= link_to @question.choice1, { :controller => "questions", :action => "answer", :id => @question[:id], :answer => 1 }, :method => :post, :remote => true, :name => "answer" %></p>
@@ -51,8 +51,12 @@
               <%= @question.explanation %>
             </div>
         <div id="nextq">
-        <%= link_to image_tag("/assets/next.gif", :alt => "次の問題へ"), question_path(@next_question) %>
+        <% if @next_question.nil? %>
+          <%= link_to "コースへ戻る", course_path(@question.course) %>
+        <% else %>
+          <%= link_to image_tag("/assets/next.gif", :alt => "次の問題へ"), course_question_path(@question.course, @next_question) %>
+        <% end %>
         </div>
-</div>
-</div>
+    </div>
+  </div>
 </div>

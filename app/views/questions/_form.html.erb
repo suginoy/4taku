@@ -1,4 +1,4 @@
-<%= form_for(@question) do |f| %>
+<%= form_for([ @question.course, @question]) do |f| %>
   <% if @question.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
@@ -11,9 +11,7 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :number %><br />
-    <%= f.number_field :number %>
+  <%= hidden_field_tag "course_id", @question.course_id %>
   </div>
   <div class="field">
     <%= f.label :title %><br />

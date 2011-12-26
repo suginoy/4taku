@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111208080740) do
+ActiveRecord::Schema.define(:version => 20111226135810) do
+
+  create_table "courses", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "owner_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "questions_count", :default => 0, :null => false
+    t.boolean  "sharing"
+  end
+
+  add_index "courses", ["owner_id"], :name => "index_courses_on_owner_id"
 
   create_table "questions", :force => true do |t|
     t.integer  "number"
@@ -25,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20111208080740) do
     t.text     "explanation"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "course_id"
   end
 
   create_table "scores", :force => true do |t|

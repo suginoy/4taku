@@ -1,0 +1,22 @@
+<h1>Dashboard</h1>
+
+<p>
+  <%= @user.email %>さんのコース
+</p>
+
+<ul>
+<% @user.courses.each do |course| %>
+  <li><%= link_to course.name, url_for(course) %>|問題数 <%= course.questions_count %></li>
+<% end %>
+</ul>
+
+<p>
+  共有されているコース
+</p>
+
+<ul>
+<% @shared_courses.each do |course| %>
+  <li><%= link_to course.name, url_for(course) %>|作成者 <%= course.owner.email %>|問題数 <%= course.questions_count %></li>
+<% end %>
+</ul>
+<%= link_to '新しいコースを作成する', new_course_path %>

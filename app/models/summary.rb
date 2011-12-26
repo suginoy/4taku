@@ -1,6 +1,5 @@
 class Summary < ActiveRecord::Base
   has_many :scores
- #has_many :users, :through => :scores
   belongs_to :users
   has_many :questions, :through => :scores
 
