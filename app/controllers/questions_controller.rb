@@ -64,11 +64,15 @@ class QuestionsController < ApplicationController
   # DELETE /courses/:course_id/questions/1.json
   def destroy
     @question = Question.find(params[:id])
-    @question.destroy
 
     respond_to do |format|
-      format.html { redirect_to questions_url }
-      format.json { head :ok }
+      if @question.destroy
+        format.html { redirect_to @question.course, notice: 'Question was successfully deleted.' }
+        format.json { head :ok }
+      else
+        format.html { redirect_to @question.course, notice: 'Question was not deleted.' }
+        format.json { render json: @question.errors, status: :unprocessable_destroy }
+      end
     end
   end
 

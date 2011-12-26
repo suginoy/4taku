@@ -1,6 +1,6 @@
 class Question < ActiveRecord::Base
   before_validation :fill_number
-  after_destroy :compact
+  after_destroy :compact_number
   belongs_to :course, :counter_cache => true
   has_many :scores
   has_many :users, :through => :scores
@@ -17,10 +17,10 @@ class Question < ActiveRecord::Base
     end
   end
 
-  def compact
+  def compact_number
     Question.where(:course_id => self.course_id).each do |question|
       if question.number > self.number
-        question.update_atribute(:number, self.number - 1)
+        question.update_attribute(:number, question.number - 1)
       end
     end
   end

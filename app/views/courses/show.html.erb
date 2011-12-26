@@ -31,7 +31,12 @@
 </p>
 <ul>
   <% @course.questions.each do |question| %>
-  <li><%= question.number %>|<%= truncate(question.description, :length => 20) %>|<%= link_to "Edit", edit_course_question_path(@course, question) %></li>
+  <li>
+    <%= question.number %>|<%= truncate(question.description, :length => 20) %>|
+    <%= link_to "Show", course_question_path(@course, question) %>|
+    <%= link_to "Edit", edit_course_question_path(@course, question) %>|
+    <%= link_to "Destroy", course_question_path(@course, question), :confirm => 'Are you sure?', :method => :delete %>
+   </li>
   <% end %>
 </ul>
 <% end %>
